@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { XRayProvider } from "../context/XRayContext";
 import { XRayToggle } from "../components/XRayToggle";
+import { Navigation } from "../components/Navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         <XRayProvider>
           {children}
+          <Navigation />
           <XRayToggle />
         </XRayProvider>
       </body>
