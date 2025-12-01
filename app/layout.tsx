@@ -4,6 +4,7 @@ import "./globals.css";
 import { XRayProvider } from "../context/XRayContext";
 import { XRayToggle } from "../components/XRayToggle";
 import { Navigation } from "../components/Navigation";
+import IntroAnimation from "../components/IntroAnimation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#f5f5f5] text-black overflow-x-hidden`}
       >
         <XRayProvider>
+          <IntroAnimation />
           {children}
           <Navigation />
           <XRayToggle />

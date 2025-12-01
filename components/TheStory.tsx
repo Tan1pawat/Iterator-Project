@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// 1. Update the Code Snippet to match the new text so "View Code" is accurate
 const STORY_CODE = `
 export const TheStory = () => {
   return (
@@ -16,20 +17,18 @@ export const TheStory = () => {
           WHY <span className="doodle-underline decoration-[#ccff00]">ITERATE?</span>
         </h2>
         <p className="text-xl leading-relaxed text-gray-700 font-serif italic">
-          "I used to fear broken code. Now I collect it."
+          "Progress is a loop, not a straight line."
         </p>
         <p className="text-gray-600 leading-relaxed">
-          This project isn't just a portfolio; it's a museum of mistakes that taught me how to fly. 
-          Every commit is a lesson, every bug a feature in disguise.
+          The Iterator Project is more than a portfolio—it is an open-source learning platform.
+          I am documenting my entire journey into REAL Development, sharing the knowledge I gain
+          and the failures I encounter.
         </p>
       </div>
       
-      <div className="relative h-64 md:h-96 bg-white border-2 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rotate-2">
-        <div className="absolute -top-4 -left-4 w-8 h-8 bg-[#ccff00] rounded-full border-2 border-black"></div>
-        <div className="h-full flex items-center justify-center">
-            {/* Doodle Animation Placeholder */}
-            <div className="paper-plane-path"></div>
-        </div>
+      {/* Doodle Animation Area */}
+      <div className="relative h-64 md:h-96 rotate-2 border-2 border-black shadow-brutalist">
+         <div className="sticky-note">BUILD. BREAK. SHARE.</div>
       </div>
     </section>
   );
@@ -56,7 +55,7 @@ export const TheStory = () => {
                 }
             });
 
-            // Paper plane animation
+            // Paper plane animation (Kept the same as it fits the journey theme perfectly)
             if (pathRef.current && planeRef.current) {
                 const pathLength = pathRef.current.getTotalLength();
 
@@ -110,14 +109,22 @@ export const TheStory = () => {
 
                     <div className="relative pl-6 border-l-4 border-black">
                         <p className="text-2xl md:text-3xl font-serif italic text-gray-800 leading-snug">
-                            "I used to fear broken code. Now I collect it."
+                            "Progress is a loop, not a straight line."
                         </p>
                     </div>
 
-                    <p className="text-lg text-gray-600 leading-relaxed font-mono">
-                        This project isn't just a portfolio; it's a <span className="bg-black text-white px-1">museum of mistakes</span> that taught me how to fly.
-                        Every commit is a lesson, every bug a feature in disguise. We don't just build software; we grow it.
-                    </p>
+                    <div className="text-lg text-gray-600 leading-relaxed font-mono space-y-4">
+                        <p>
+                            The Iterator Project is my <span className="bg-black text-white px-1">open-source learning log.</span>
+                            This isn't just a place to show finished work; it is a platform where I document the raw reality
+                            of becoming a REAL Developer.
+                        </p>
+                        <p>
+                            I share the process behind every line of code—the algorithms that failed, the math that finally clicked,
+                            and the knowledge I've gathered along the way. My goal is to turn my individual iterations into
+                            shared lessons for us all.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Right: Doodle Visual */}
@@ -145,9 +152,9 @@ export const TheStory = () => {
                             </svg>
                         </div>
 
-                        {/* Sticky Note */}
+                        {/* Sticky Note - UPDATED TEXT */}
                         <div className="absolute bottom-8 right-8 w-32 h-32 bg-[#ccff00] shadow-md transform -rotate-6 p-4 flex items-center justify-center text-center font-black text-sm border border-black/10">
-                            FAIL FAST<br />LEARN FASTER
+                            BUILD.<br />BREAK.<br />SHARE.
                         </div>
                     </div>
                 </div>
