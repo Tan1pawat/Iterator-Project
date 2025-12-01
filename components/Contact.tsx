@@ -29,45 +29,45 @@ const NETWORK_PROTOCOLS = {
 const socialLinks = [
     {
         name: "LinkedIn",
-        handle: "Professional Profile",
-        url: "https://linkedin.com/in/yourprofile",
+        handle: "My LinkedIn Profile",
+        url: "https://www.linkedin.com/in/pawat-yamwong-23573728b/",
         icon: <Linkedin size={28} />,
         color: "hover:bg-[#0077b5] hover:text-white"
     },
     {
         name: "GitHub",
-        handle: "@yourdevname",
-        url: "https://github.com/yourname",
+        handle: "@Tan1pawat",
+        url: "https://github.com/Tan1pawat",
         icon: <Github size={28} />,
         color: "hover:bg-[#333] hover:text-white"
     },
     {
         name: "YouTube",
-        handle: "The Iterator Channel",
-        url: "https://youtube.com/@yourchannel",
+        handle: "My YouTube Channel",
+        url: "https://www.youtube.com/@IteratorProject",
         icon: <Youtube size={28} />,
         color: "hover:bg-[#FF0000] hover:text-white"
     },
     {
         name: "X / Twitter",
-        handle: "@yourhandle",
-        url: "https://x.com/yourhandle",
+        handle: "@IteratorProject",
+        url: "https://x.com/IteratorProject",
         icon: <Twitter size={28} />,
         color: "hover:bg-black hover:text-white"
     },
     {
         name: "Facebook",
-        handle: "Social Page",
-        url: "https://facebook.com/yourpage",
+        handle: "My Facebook Page",
+        url: "https://www.facebook.com/profile.php?id=61583954205005",
         icon: <Facebook size={28} />,
         color: "hover:bg-[#1877F2] hover:text-white"
     },
     {
         name: "Medium",
         handle: "Tech Blog",
-        url: "https://medium.com/@yourname",
+        url: "https://medium.com/@Tan1pawat",
         icon: <FileText size={28} />,
-        color: "hover:bg-black hover:text-white" // Medium is usually black/white
+        color: "hover:bg-black hover:text-white"
     }
 ];
 
