@@ -1,6 +1,6 @@
 # The Iterator Project
 
-A personal portfolio platform representing the cycle of "Try -> Fail -> Learn -> Repeat."
+A personal learning platform representing the cycle of "Try -> Fail -> Learn -> Repeat." 
 
 ## Tech Stack
 - **Framework:** Next.js 16 (App Router, TypeScript)
