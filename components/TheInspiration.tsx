@@ -1,88 +1,84 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CodeReveal } from './CodeReveal';
-import { feedData, FeedItem } from '../data/mockData';
-import { Play, FileText, Smartphone, ChevronLeft, ChevronRight } from 'lucide-react';
+import { inspirationData, InspirationItem } from '../data/mockData';
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
-// Updating the code string to reflect the new Carousel logic for the "CodeReveal" component
-const THE_LOOP_CODE = `
-export const TheLoop = () => {
+const INSPIRATION_CODE = `
+export const TheInspiration = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const nextSlide = () => {
-    setActiveIndex((prev) => (prev + 1) % feedData.length);
+    setActiveIndex((prev) => (prev + 1) % inspirationData.length);
   };
 
   const prevSlide = () => {
-    setActiveIndex((prev) => (prev - 1 + feedData.length) % feedData.length);
+    setActiveIndex((prev) => (prev - 1 + inspirationData.length) % inspirationData.length);
   };
 
-  // Logic to determine which 3 items to show
-  const getVisibleItems = () => {
-    const prevIndex = (activeIndex - 1 + feedData.length) % feedData.length;
-    const nextIndex = (activeIndex + 1) % feedData.length;
-    return [
-      { ...feedData[prevIndex], status: 'prev' },
-      { ...feedData[activeIndex], status: 'active' },
-      { ...feedData[nextIndex], status: 'next' }
-    ];
-  };
-  
-  // Render structure...
+  return (
+    <section>
+      <h2>MY INSPIRATION</h2>
+      {/* YouTube Video Carousel with Quotes */}
+      {inspirationData.map((item, index) => (
+        <div key={item.id}>
+          <img src={\`https://img.youtube.com/vi/\${item.videoId}/maxresdefault.jpg\`} />
+          <blockquote>{item.quote}</blockquote>
+          <cite>{item.author}</cite>
+        </div>
+      ))}
+    </section>
+  );
 };
 `;
 
-const Card = ({ item, isActive }: { item: FeedItem, isActive: boolean }) => {
-    const getIcon = () => {
-        switch (item.type) {
-            case 'youtube': return <Play size={24} className="fill-current" />;
-            case 'tiktok': return <Smartphone size={24} />;
-            case 'article': return <FileText size={24} />;
-        }
-    };
+const VideoCard = ({ item, isActive }: { item: InspirationItem, isActive: boolean }) => {
+    const thumbnailUrl = `https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`;
+    const videoUrl = `https://www.youtube.com/watch?v=${item.videoId}`;
 
     return (
         <div
             className={`
-                relative bg-white border-2 border-black rounded-lg transition-all duration-500 ease-in-out
+                relative bg-white border-2 border-black rounded-lg transition-all duration-500 ease-in-out overflow-hidden
                 ${isActive
-                    ? 'w-[400px] md:w-[500px] p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] scale-100 opacity-100 z-20'
-                    : 'w-[200px] md:w-[250px] p-2 shadow-none scale-90 opacity-75 grayscale-[0.5] z-10'
+                    ? 'w-[400px] md:w-[500px] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] scale-100 opacity-100 z-20'
+                    : 'w-[200px] md:w-[250px] shadow-none scale-90 opacity-75 grayscale-[0.5] z-10'
                 }
             `}
         >
-            {/* THUMBNAIL AREA */}
-            <div className={`
-                w-full aspect-video ${item.type === 'tiktok' ? 'aspect-[9/16]' : ''} 
-                ${item.thumbnail} rounded border border-black/10 relative flex items-center justify-center
-                ${isActive ? 'mb-6' : 'mb-0'} 
-            `}>
-                <div className="opacity-20">{getIcon()}</div>
-            </div>
-
-            {/* TEXT CONTENT - Only visible if Active */}
-            <div className={`transition-all duration-300 overflow-hidden ${isActive ? 'opacity-100 max-h-[200px]' : 'opacity-0 max-h-0'}`}>
-                <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-bold text-2xl leading-tight decoration-2 underline-offset-2 decoration-[#ccff00] underline">
-                        {item.title}
-                    </h3>
-                    <span className="shrink-0 p-2 bg-black text-white rounded-full">
-                        {getIcon()}
-                    </span>
+            {/* YouTube Thumbnail */}
+            <a
+                href={videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block relative group"
+            >
+                <img
+                    src={thumbnailUrl}
+                    alt={`Video thumbnail`}
+                    className="w-full aspect-video object-cover"
+                />
+                {/* Play button overlay */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                    <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
                 </div>
+            </a>
 
-                <div className="mt-4 flex flex-wrap gap-2">
-                    {item.tags.map(tag => (
-                        <span key={tag} className="text-xs font-mono border border-black px-2 py-1 rounded-full uppercase tracking-wider">
-                            {tag}
-                        </span>
-                    ))}
-                </div>
-
-                {/* Quote placeholder as per design */}
-                <div className="mt-6 pt-4 border-t border-dashed border-gray-300 font-mono text-sm text-gray-500 italic">
-                    "Consuming, Creating, Iterating..."
+            {/* Quote Section - Only visible if Active */}
+            <div className={`transition-all duration-300 overflow-hidden ${isActive ? 'opacity-100 max-h-[300px] p-6' : 'opacity-0 max-h-0 p-0'}`}>
+                <div className="relative">
+                    <Quote className="absolute -top-2 -left-2 text-[#ccff00] opacity-50" size={32} />
+                    <blockquote className="font-serif italic text-lg text-gray-800 leading-relaxed pl-6">
+                        "{item.quote}"
+                    </blockquote>
+                    <cite className="block mt-4 text-right font-mono text-sm text-gray-600 not-italic">
+                        — {item.author}
+                    </cite>
                 </div>
             </div>
         </div>
@@ -93,24 +89,24 @@ export const TheInspiration = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const nextSlide = () => {
-        setActiveIndex((prev) => (prev + 1) % feedData.length);
+        setActiveIndex((prev) => (prev + 1) % inspirationData.length);
     };
 
     const prevSlide = () => {
-        setActiveIndex((prev) => (prev - 1 + feedData.length) % feedData.length);
+        setActiveIndex((prev) => (prev - 1 + inspirationData.length) % inspirationData.length);
     };
 
     // Calculate the indices for the Prev, Active, and Next cards
     const getVisibleIndices = () => {
-        const prevIndex = (activeIndex - 1 + feedData.length) % feedData.length;
-        const nextIndex = (activeIndex + 1) % feedData.length;
+        const prevIndex = (activeIndex - 1 + inspirationData.length) % inspirationData.length;
+        const nextIndex = (activeIndex + 1) % inspirationData.length;
         return [prevIndex, activeIndex, nextIndex];
     };
 
     const visibleIndices = getVisibleIndices();
 
     return (
-        <CodeReveal codeString={THE_LOOP_CODE} className="w-full bg-white py-20 border-t-2 border-black" title="TheLoop">
+        <CodeReveal codeString={INSPIRATION_CODE} className="w-full bg-white py-20 border-t-2 border-black" title="TheInspiration">
             <section className="px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
                 <div className="mb-12 text-center">
                     <h2 className="text-5xl md:text-7xl font-black relative inline-block z-10">
@@ -119,6 +115,7 @@ export const TheInspiration = () => {
                             <path d="M0,10 Q100,20 200,5" stroke="currentColor" strokeWidth="15" fill="none" />
                         </svg>
                     </h2>
+                    <p className="mt-4 font-mono text-gray-600">Videos and quotes that fuel my journey</p>
                 </div>
 
                 {/* CAROUSEL CONTAINER */}
@@ -134,18 +131,17 @@ export const TheInspiration = () => {
 
                     {/* CARDS LOOP */}
                     {visibleIndices.map((index, i) => {
-                        // i=0 is Prev, i=1 is Active, i=2 is Next
                         const isCenter = i === 1;
                         return (
                             <div
-                                key={`${feedData[index].id}-${i}`}
+                                key={`${inspirationData[index].id}-${i}`}
                                 onClick={() => {
                                     if (i === 0) prevSlide();
                                     if (i === 2) nextSlide();
                                 }}
                                 className={`cursor-pointer ${isCenter ? 'cursor-default' : ''}`}
                             >
-                                <Card item={feedData[index]} isActive={isCenter} />
+                                <VideoCard item={inspirationData[index]} isActive={isCenter} />
                             </div>
                         );
                     })}
@@ -161,7 +157,7 @@ export const TheInspiration = () => {
 
                 {/* Pagination Dots */}
                 <div className="flex justify-center gap-2 mt-8">
-                    {feedData.map((_, idx) => (
+                    {inspirationData.map((_, idx) => (
                         <button
                             key={idx}
                             onClick={() => setActiveIndex(idx)}

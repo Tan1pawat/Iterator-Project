@@ -14,56 +14,11 @@ export const feedData: FeedItem[] = [
     {
         id: '1',
         type: 'youtube',
-        title: 'Building a 3D Portfolio with Three.js',
+        title: 'My First Month Experience after switch Windows to Linux',
         thumbnail: 'bg-red-100', // Placeholder
         url: '#',
-        date: '2023-10-15',
-        tags: ['Three.js', 'React', '3D']
-    },
-    {
-        id: '2',
-        type: 'tiktok',
-        title: 'CSS Grid vs Flexbox in 60s',
-        thumbnail: 'bg-blue-100',
-        url: '#',
-        date: '2023-10-18',
-        tags: ['CSS', 'Tips']
-    },
-    {
-        id: '3',
-        type: 'article',
-        title: 'Why I rewrote my entire backend in Rust',
-        thumbnail: 'bg-gray-100',
-        url: '#',
-        date: '2023-10-20',
-        tags: ['Rust', 'Backend', 'Opinion']
-    },
-    {
-        id: '4',
-        type: 'youtube',
-        title: 'GSAP Animations for Beginners',
-        thumbnail: 'bg-green-100',
-        url: '#',
-        date: '2023-10-25',
-        tags: ['GSAP', 'Animation']
-    },
-    {
-        id: '5',
-        type: 'tiktok',
-        title: 'My VS Code Setup 2024',
-        thumbnail: 'bg-purple-100',
-        url: '#',
-        date: '2023-10-28',
-        tags: ['VS Code', 'Productivity']
-    },
-    {
-        id: '6',
-        type: 'article',
-        title: 'The Art of Iteration',
-        thumbnail: 'bg-yellow-100',
-        url: '#',
-        date: '2023-11-01',
-        tags: ['Philosophy', 'Design']
+        date: '2025-11-01',
+        tags: ['Windows', 'Linux', 'Productivity']
     }
 ];
 
@@ -123,32 +78,20 @@ export interface InspirationItem {
 export const inspirationData: InspirationItem[] = [
     {
         id: '1',
-        videoId: 'M7lc1UVf-VE', // Example: Rick Astley (Classic placeholder) or something relevant
-        quote: "Simplicity is the ultimate sophistication.",
-        author: "Leonardo da Vinci"
+        videoId: 'QIyc6NKS5J0',
+        quote: "The more ways your see a problem be solved, The more ways that you can solve a problem",
+        author: "ThePrimeTime"
     },
     {
         id: '2',
-        videoId: '9xwazD5SyVg', // Example: Lofi Girl
-        quote: "Design is not just what it looks like and feels like. Design is how it works.",
-        author: "Steve Jobs"
+        videoId: 'o8NPllzkFhE',
+        quote: "Talk is cheap. Show me the code.",
+        author: "Linus Torvalds"
     },
     {
         id: '3',
-        videoId: 'eI4an8aSsgw', // Example: Coding train
-        quote: "Move fast and break things. Unless you are breaking stuff, you are not moving fast enough.",
+        videoId: 'tMWJGs3CQ_Q',
+        quote: "There are definitely elements of experience... that someone my age wouldn't have. But there are also things that I can do that other people wouldn't necessarily be able to.",
         author: "Mark Zuckerberg"
     },
-    {
-        id: '4',
-        videoId: 'aircAruvnKk', // Example: 3Blue1Brown
-        quote: "The details are not the details. They make the design.",
-        author: "Charles Eames"
-    },
-    {
-        id: '5',
-        videoId: 'SqcY0GlETPk', // Example: React Conf
-        quote: "Digital design is like painting, except the paint never dries.",
-        author: "Neville Brody"
-    }
 ];

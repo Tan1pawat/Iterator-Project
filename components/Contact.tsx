@@ -127,11 +127,11 @@ export const Contact = () => {
                 <div className="mt-12 p-8 border-2 border-black bg-[#f0f0f0] border-dashed text-center">
                     <h3 className="font-bold text-2xl mb-2">Prefer email?</h3>
                     <a
-                        href="mailto:contact@iterator.com"
+                        href="mailto:tan.pawat.yamwong@gmail.com"
                         className="inline-flex items-center gap-2 text-xl font-mono hover:bg-[#ccff00] px-4 py-1 border-b-2 border-black transition-colors"
                     >
                         <Mail size={20} />
-                        contact@iterator.com
+                        tan.pawat.yamwong@gmail.com
                     </a>
                 </div>
 
